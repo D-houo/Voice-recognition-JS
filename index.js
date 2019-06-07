@@ -1,13 +1,13 @@
-const speechrecog = SpeechRecognition || webkitSpeechRecognition;
+const speechrecog = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new speechrecog();
 
 const btn = document.getElementById("button");
-recognition.onstart = funtion()
+recognition.onStart = function() 
 {
     console.log("voice is activated");
 };
 
-recognition.onspeechend = funtion() 
+recognition.onspeechend = function() 
 {
 
 };
@@ -18,5 +18,5 @@ recognition.onresult = function(event)
 };
 
 btn.addEventListener('click', () => {
-    recognition.onstart();
-});
+    recognition.start();
+}, false);
