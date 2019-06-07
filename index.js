@@ -23,3 +23,6 @@ recognition.onresult = function(event){
 }
 
 document.getElementById("button").addEventListener("click", function(){recognition.start();},false);
+document.onload = function(){
+    alert("khifytdyf");
+}
