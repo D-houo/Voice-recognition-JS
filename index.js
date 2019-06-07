@@ -11,3 +11,11 @@ recognition.lang = 'en-US';
 recognition.interimResults = false;
 
 var message = document.getElementById("res");
+
+recognition.onresult = function(event){
+    var last = event.results.length - 1;
+    var command = event.results[last][0].transcript;
+    message.textContent = 'voice input: '+ command + '.';
+
+    
+}
