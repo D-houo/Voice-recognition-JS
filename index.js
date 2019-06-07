@@ -17,5 +17,9 @@ recognition.onresult = function(event){
     var command = event.results[last][0].transcript;
     message.textContent = 'voice input: '+ command + '.';
 
-    
+    if (command.toLowerCase() === "select apple"){
+        document.getElementById("apple").checked = true;
+    }
 }
+
+document.getElementById("button").addEventListener("click", function(){recognition.start();},false);
