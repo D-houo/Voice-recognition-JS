@@ -1,28 +1,22 @@
-var speechrecog = SpeechRecognition || webkitSpeechRecognition;
-var speechgrammer = SpeechGrammarList || webkitSpeechGrammarList;
-var grammer  = '#JSGF V1.0;';
+const speechrecog = SpeechRecognition || webkitSpeechRecognition;
+const recognition = new speechrecog();
 
-var recognition = new speechrecog();
-var speechrecoggrammer = new speechgrammer();
-speechrecoggrammer.addFromString(grammer, 1);
+const btn = document.getElementById("button");
+recognition.onstart = funtion()
+{
+    console.log("voice is activated");
+};
 
-recognition.grammers = speechrecoggrammer;
-recognition.lang = 'en-US';
-recognition.interimResults = false;
+recognition.onspeechend = funtion() 
+{
 
-var message = document.getElementById("res");
+};
 
-recognition.onresult = function(event){
-    var last = event.results.length - 1;
-    var command = event.results[last][0].transcript;
-    message.textContent = 'voice input: '+ command + '.';
+recognition.onresult = function(event)
+{
+    console.log(event);
+};
 
-    if (command.toLowerCase() === "select apple"){
-        document.getElementById("apple").checked = true;
-    }
-}
-
-document.getElementById("button").addEventListener("click", function(){recognition.start();},false);
-document.onload = function(){
-    alert("khifytdyf");
-}
+btn.addEventListener('click', () => {
+    recognition.onstart();
+});
